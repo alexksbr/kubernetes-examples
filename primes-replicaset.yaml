@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: primes
+    version: "1.0"
+  name: primes
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: primes
+      version: "1.0"
+  template:
+    metadata:
+      labels:
+        app: primes
+        version: "1.0"
+    spec:
+      containers:
+        - name: primes
+          image: "alexksbr/primes:1.0"
